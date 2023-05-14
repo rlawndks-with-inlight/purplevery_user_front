@@ -3,25 +3,97 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --bg-home: url("/images/home.webp");
+  --bg-comagain: url("/images/comagain.webp");
+  --bg-payvery: url("/images/payvery.webp");
+  --bg-request: url("/images/request.webp");
+  --bg-404: url("/images/404.webp");
+  --bg-contact: url("/images/contact.webp");
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.bg-home {
+  background-image: var(--bg-home);
+  background-size: cover;
+  background-position: center;
+}
+.bg-comagain {
+  background-image: var(--bg-comagain);
+  background-size: cover;
+  background-position: center;
+}
+.bg-payvery {
+  background-image: var(--bg-payvery);
+  background-size: cover;
+  background-position: center;
+}
+.bg-request {
+  background-image: var(--bg-request);
+  background-size: cover;
+  background-position: center;
+}
+.bg-404 {
+  background-image: var(--bg-404);
+  background-size: cover;
+  background-position: center;
+}
+.bg-contact {
+  background-image: var(--bg-contact);
+  background-size: cover;
+  background-position: center;
+}
+
+@layer base {
+  html,
+  body {
+    @apply bg-black text-white lg:overflow-hidden;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer components {
+  .sidebar_before {
+    @apply before:black_gradient_top before:fixed before:top-header_h before:z-20 before:h-top_margin before:w-sm_sidebar_w before:2xl:w-sidebar_w;
+  }
+  .sidebar_after {
+    @apply before:black_gradient_bottom before:fixed before:top-header_h before:h-top_margin before:w-sm_sidebar_w before:2xl:w-sidebar_w;
+  }
+
+  .black_gradient_top {
+    background: rgb(12, 12, 12);
+    background: linear-gradient(
+      180deg,
+      rgba(12, 12, 12, 1) 10%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+
+  .black_gradient_bottom {
+    background: rgb(12, 12, 12);
+    background: linear-gradient(
+      360deg,
+      rgba(12, 12, 12, 1) 10%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+
+  .title {
+    @apply text-[2rem] font-light leading-[3.25rem] tracking-[-0.04em] lg:text-[3rem] lg:leading-[4.25rem] 2xl:text-[3.125vw] 2xl:leading-[5.21vw];
+  }
+  .custom_scroll {
+    @apply overflow-scroll scrollbar-thin scrollbar-track-transparent scrollbar-thumb-prime_shadow/60 scrollbar-thumb-rounded-lg scrollbar-w-[6px];
+  }
+  .strong {
+    @apply text-[3rem] font-bold text-primary lg:text-[4rem] 2xl:text-[4.3vw];
+  }
+
+  .contact_info_container {
+    @apply mt-[35px] flex w-full flex-col space-y-10 sm:mt-[10vh] sm:space-y-[7.031vw];
+  }
+
+  .contact_info_row {
+    @apply flex flex-col justify-between space-y-10 sm:flex-row sm:space-y-0 sm:px-[15%] md:px-[12vw];
+  }
+
+  .contact_info_text {
+    @apply whitespace-pre-wrap text-[3vw] sm:text-[2vw] lg:text-[1.042vw] lg:leading-[2.083vw];
+  }
 }
