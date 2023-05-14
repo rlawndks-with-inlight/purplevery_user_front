@@ -8,9 +8,9 @@ export default function Document() {
         <meta property="og:title" content="purplevery" />
         <meta property="og:url" content={"team.purplevery.co.kr"} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/vercel.svg" />
+        <meta property="og:image" content="/images/home.webp" />
         <meta
-          name="og:description"
+          property="og:description"
           content="사랑하는 사람들과 성공으로 가는 과정을 계획하는데 함께하겠습니다."
         />
         <meta property="og:site_name" content="PURPLEVERY" />
@@ -19,13 +19,13 @@ export default function Document() {
         {/* <meta name="twitter:card" content="트위터 카드 타입(요약정보, 사진, 비디오)" />  */}
         <meta name="twitter:title" content="purplevery" />
         <meta
-          name="twitter:description"
+          property="twitter:description"
           content="사랑하는 사람들과 성공으로 가는 과정을 계획하는데 함께하겠습니다."
         />
-        <meta name="twitter:image" content="/vercel.svg" />
-        <link rel="canonical" href={`team.purplevery.co.kr`} />
+        <meta name="twitter:image" content="/images/home.webp" />
+        <link rel="canonical" href="team.purplevery.co.kr" />
         <meta
-          name="description"
+          property="description"
           content="사랑하는 사람들과 성공으로 가는 과정을 계획하는데 함께하겠습니다."
         />
       </Head>
