@@ -22,7 +22,7 @@
   background-position: center;
 }
 .bg-payvery {
-  background-image: var(--bg-payvery);
+  background-imaFposition: sticky;ge: var(--bg-payvery);
   background-size: cover;
   background-position: center;
 }
@@ -39,7 +39,7 @@
 .bg-contact {
   background-image: var(--bg-contact);
   background-size: cover;
-  background-position: center;
+  background-position: center; 
 }
 
 @layer base {
