@@ -12,11 +12,13 @@ import TypeAnimation from "@/components/global/TypeAnimation";
 
 const QNA = () => {
   const veryCounts = 150;
+  const [isClient, setIsClient] = useState(false);
   const [isDoubleClicked, setIsDoubleClicked] = useState(false);
   const [veryDownStart, setVeryDownStart] = useState(false);
   const [durations, setDurations] = useState([]);
 
   useEffect(() => {
+    setIsClient(true);
     [...Array(veryCounts)].forEach((_) => {
       setDurations((prev) => [...prev, Math.random() + 1]);
     });
@@ -50,51 +52,53 @@ const QNA = () => {
             </Paragraph>
           </div>
 
-          <motion.p
-            variants={fadeIn("up", 0.4)}
-            initial="hidden"
-            animate={"show"}
-            className="mt-[45px] whitespace-pre-wrap text-[30px]"
-          >
-            <TypeAnimation>
-              <span className="text-[30px]">{"잘 "}</span>
-              <span className="text-[30px]">들</span>
-              <span className="text-[30px]">어</span>
-              <span className="text-[30px]">오</span>
-              <span className="text-[30px]">셨</span>
-              <span className="text-[30px]">습</span>
-              <span className="text-[30px]">니</span>
-              <span className="text-[30px]">다</span>
-              <span className="text-[30px]">{"!\n"}</span>
-              <strong className="text-[30px] font-bold">궁</strong>
-              <strong className="text-[30px] font-bold">금</strong>
-              <strong className="text-[30px] font-bold">하</strong>
-              <strong className="text-[30px] font-bold">{"신 "}</strong>
-              <strong className="text-[30px] font-bold">사</strong>
-              <strong className="text-[30px] font-bold">항</strong>
-              <span className="text-[30px]">{"을 "}</span>
-              <span className="text-[30px]">적</span>
-              <span className="text-[30px]">어</span>
-              <span className="text-[30px]">주</span>
-              <span className="text-[30px]">세</span>
-              <span className="text-[30px]">요</span>
-              <span className="text-[30px]">{".\n"}</span>
-              <span className="text-[30px]">성</span>
-              <span className="text-[30px]">심</span>
-              <span className="text-[30px]">성</span>
-              <span className="text-[30px]">의</span>
-              <span className="text-[30px]">{"껏 "}</span>
-              <span className="text-[30px]">답</span>
-              <span className="text-[30px]">변</span>
-              <span className="text-[30px]">드</span>
-              <span className="text-[30px]">리</span>
-              <span className="text-[30px]">겠</span>
-              <span className="text-[30px]">습</span>
-              <span className="text-[30px]">니</span>
-              <span className="text-[30px]">다</span>
-              <span className="text-[30px]">.</span>
-            </TypeAnimation>
-          </motion.p>
+          {isClient && (
+            <motion.div
+              variants={fadeIn("up", 0.4)}
+              initial="hidden"
+              animate={"show"}
+              className="mt-[45px] whitespace-pre-wrap text-[30px]"
+            >
+              <TypeAnimation>
+                <span className="text-[30px]">{"잘 "}</span>
+                <span className="text-[30px]">들</span>
+                <span className="text-[30px]">어</span>
+                <span className="text-[30px]">오</span>
+                <span className="text-[30px]">셨</span>
+                <span className="text-[30px]">습</span>
+                <span className="text-[30px]">니</span>
+                <span className="text-[30px]">다</span>
+                <span className="text-[30px]">{"!\n"}</span>
+                <strong className="text-[30px] font-bold">궁</strong>
+                <strong className="text-[30px] font-bold">금</strong>
+                <strong className="text-[30px] font-bold">하</strong>
+                <strong className="text-[30px] font-bold">{"신 "}</strong>
+                <strong className="text-[30px] font-bold">사</strong>
+                <strong className="text-[30px] font-bold">항</strong>
+                <span className="text-[30px]">{"을 "}</span>
+                <span className="text-[30px]">적</span>
+                <span className="text-[30px]">어</span>
+                <span className="text-[30px]">주</span>
+                <span className="text-[30px]">세</span>
+                <span className="text-[30px]">요</span>
+                <span className="text-[30px]">{".\n"}</span>
+                <span className="text-[30px]">성</span>
+                <span className="text-[30px]">심</span>
+                <span className="text-[30px]">성</span>
+                <span className="text-[30px]">의</span>
+                <span className="text-[30px]">{"껏 "}</span>
+                <span className="text-[30px]">답</span>
+                <span className="text-[30px]">변</span>
+                <span className="text-[30px]">드</span>
+                <span className="text-[30px]">리</span>
+                <span className="text-[30px]">겠</span>
+                <span className="text-[30px]">습</span>
+                <span className="text-[30px]">니</span>
+                <span className="text-[30px]">다</span>
+                <span className="text-[30px]">.</span>
+              </TypeAnimation>
+            </motion.div>
+          )}
         </>
       </Layout>
 
