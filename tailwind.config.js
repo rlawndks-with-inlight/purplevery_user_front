@@ -24,6 +24,11 @@ module.exports = {
       fontFamily: {
         noto: ["var(--font-nsKR)"],
       },
+      fontSize: {
+        custom_sm: "30px",
+        custom_md: "45px",
+        custom_lg: "60px",
+      },
     },
   },
   plugins: [

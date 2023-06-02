@@ -49,6 +49,9 @@ const QNA = () => {
               <strong className="font-bold lg:text-[3.646vw]">4</strong>
               <strong className="font-bold lg:text-[3.646vw]">0</strong>
               <strong className="font-bold lg:text-[3.646vw]">4</strong>
+              <strong className="font-bold lg:text-[3.646vw]">t</strong>
+              <strong className="font-bold lg:text-[3.646vw]">o</strong>
+              <strong className="font-bold lg:text-[3.646vw]">k</strong>
             </Paragraph>
           </div>
 

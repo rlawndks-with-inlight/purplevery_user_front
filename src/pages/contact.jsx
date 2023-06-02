@@ -1,6 +1,7 @@
 import React from "react";
-import Paragraph from "@/components/global/Paragraph";
 import { motion } from "framer-motion";
+
+import Paragraph from "@/components/global/Paragraph";
 import { fadeIn } from "@/libs/variants";
 import Layout from "@/components/layout";
 
@@ -46,7 +47,9 @@ const Contact = () => {
                 />
               </svg>
               <p className="contact_info_text">
-                {"대전광역시 서구 대덕대로 241번길 20,\n549-4호 (둔산동, 청남빌딩)"}
+                {
+                  "대전광역시 서구 대덕대로 241번길 20,\n549-4호 (둔산동, 청남빌딩)"
+                }
               </p>
             </div>
             <div className="space-y-3 sm:space-y-[2.78vh]">

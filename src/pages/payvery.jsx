@@ -8,7 +8,7 @@ const Payvery = () => {
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 405.718 63.185"
-          className="md:w-[250px] 2xl:w-[405.718px] w-[179px]"
+          className="w-[179px] md:w-[250px] 2xl:w-[405.718px]"
         >
           <g
             id="그룹_123"
