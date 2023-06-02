@@ -13,7 +13,7 @@ const Sidebar = () => {
               key={idx}
               onClick={() => router.push(route.link)}
               className={cls(
-                "mb-[20px] w-fit cursor-pointer transition-colors duration-500",
+                "mb-[20px] w-fit cursor-pointer",
                 route.isSub &&
                   cls(
                     "text-sm font-medium text-[#b3b3b3]",

@@ -32,14 +32,8 @@ const clientRoutes = [
     bgImg: "payvery",
   },
   {
-    link: "/request",
-    title: "Request",
-    isSub: false,
-    bgImg: "request",
-  },
-  {
     link: "/qna",
-    title: "404",
+    title: "404tok",
     isSub: false,
     bgImg: "404",
   },

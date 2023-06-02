@@ -8,7 +8,7 @@ const Comagain = () => {
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 269.065 46.576"
-          className="lg:w-[225px] 2xl:w-[269.065px] w-[179px]"
+          className="h-[27.88px] md:h-[38.92px] 2xl:h-[63px]"
         >
           <g
             id="그룹_119"

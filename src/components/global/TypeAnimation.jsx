@@ -11,7 +11,7 @@ const TypeAnimation = ({ children }) => {
       setIndex((prev) => prev + 1);
     }
   }, 50);
-  return <div>{text}</div>;
+  return <>{text}</>;
 };
 
 export default TypeAnimation;

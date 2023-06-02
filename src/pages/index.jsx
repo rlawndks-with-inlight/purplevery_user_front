@@ -1,6 +1,10 @@
 import React from "react";
+import { motion } from "framer-motion";
+
 import Paragraph from "@/components/global/Paragraph";
 import Layout from "@/components/layout";
+import Slogun from "@/components/who-we-are/slogun";
+import { fadeIn } from "@/libs/variants";
 
 const Home = () => {
   return (
@@ -24,6 +28,14 @@ const Home = () => {
         <span>다</span>
         <span>.</span>
       </Paragraph>
+      <motion.div
+        variants={fadeIn("up", 0.8)}
+        initial="hidden"
+        animate={"show"}
+        className="mt-10"
+      >
+        <Slogun />
+      </motion.div>
     </Layout>
   );
 };
