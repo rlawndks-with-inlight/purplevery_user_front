@@ -45,7 +45,7 @@
 @layer base {
   html,
   body {
-    @apply bg-black text-white lg:overflow-hidden;
+    @apply w-full bg-black text-white lg:overflow-hidden;
   }
 }
 
@@ -76,24 +76,16 @@
   }
 
   .title {
-    @apply text-[15px] font-light leading-[55px] tracking-[-0.04em] lg:text-custom_sm lg:leading-[70px] 2xl:text-custom_md 2xl:leading-[85px];
+    @apply text-custom_sm font-light leading-[45px] tracking-[-0.04em] md:leading-[50px] 2xl:text-custom_md 2xl:leading-[65px];
   }
   .custom_scroll {
-    @apply overflow-scroll scrollbar-thin scrollbar-track-transparent scrollbar-thumb-prime_shadow/60 scrollbar-thumb-rounded-lg scrollbar-w-[6px];
+    @apply overflow-y-scroll scrollbar-thin scrollbar-track-transparent scrollbar-thumb-prime_shadow/60 scrollbar-thumb-rounded-lg scrollbar-w-[6px];
   }
   .strong {
-    @apply text-custom_sm font-bold text-primary lg:text-custom_md 2xl:text-custom_lg;
-  }
-
-  .contact_info_container {
-    @apply mt-[35px] flex w-full flex-col space-y-10 sm:mt-[10vh] sm:space-y-[7.031vw];
-  }
-
-  .contact_info_row {
-    @apply flex flex-col justify-between space-y-10 sm:flex-row sm:space-y-0 sm:px-[15%] md:px-[12vw];
+    @apply text-custom_sm font-bold text-primary md:text-custom_md 2xl:text-custom_lg 2xl:leading-[50px];
   }
 
   .contact_info_text {
-    @apply whitespace-pre-wrap text-[3vw] sm:text-[2vw] lg:text-[1.042vw] lg:leading-[2.083vw];
+    @apply whitespace-pre-wrap text-[3vw] sm:text-center sm:text-[15px] 2xl:text-[20px] 2xl:leading-[40px];
   }
 }

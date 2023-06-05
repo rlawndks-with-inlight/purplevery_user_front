@@ -29,7 +29,7 @@ const Home = () => {
         <span>.</span>
       </Paragraph>
       <motion.div
-        variants={fadeIn("up", 0.8)}
+        variants={fadeIn("up", 1)}
         initial="hidden"
         animate={"show"}
         className="mt-10"

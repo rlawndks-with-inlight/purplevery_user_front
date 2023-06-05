@@ -20,7 +20,7 @@ const Paragraph = ({ children, hasImg }) => {
       initial="hidden"
       animate={"show"}
       className={`${
-        hasImg ? "lg:pt-0" : "lg:pt-top_margin"
+        hasImg ? "lg:pt-0" : "lg:pt-[5.5rem]"
       } title lg:whitespace-pre-wrap`}
     >
       {text}
