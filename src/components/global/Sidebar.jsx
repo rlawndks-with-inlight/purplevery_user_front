@@ -25,7 +25,7 @@ const Sidebar = () => {
                     : route.link === "/payvery"
                     ? "text-prime_blue"
                     : "text-primary"
-                  : "hover:text-white"
+                  : "text-white"
               )}
             >
               {route.title}

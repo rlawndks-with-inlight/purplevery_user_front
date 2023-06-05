@@ -19,7 +19,7 @@ const Navbar = () => {
           onClick={() => router.push("/")}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 189.929 49.203"
-          className="lg:w-[150px] 2xl:w-[189.929px] w-[100px] cursor-pointer"
+          className="w-[100px] cursor-pointer lg:w-[150px] 2xl:w-[189.929px]"
         >
           <g
             id="그룹_112"
@@ -410,7 +410,7 @@ const Navbar = () => {
             <li
               key={idx}
               className={cls(
-                "text-md w-full font-bold text-[#b3b3b3]",
+                "text-md w-full cursor-pointer font-bold text-[#b3b3b3]",
                 route.isSub ? "px-4 py-3 text-sm" : "py-4",
                 router.pathname === route.link
                   ? route.link === "/comagain"

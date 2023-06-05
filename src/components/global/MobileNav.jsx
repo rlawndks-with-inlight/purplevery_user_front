@@ -25,7 +25,7 @@ const MobileNav = () => {
   return (
     <>
       {curRoute && (
-        <nav className="mt-5 flex items-center space-x-2 text-xs font-bold text-[#b3b3b3] lg:hidden">
+        <nav className="mt-5 flex items-center space-x-2 px-5 text-xs font-bold text-[#b3b3b3] lg:hidden">
           {topRoute && (
             <>
               <span>{topRoute}</span>

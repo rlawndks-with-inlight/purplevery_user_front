@@ -1,13 +1,9 @@
 import { useContext, useEffect, useRef, useState } from "react";
-import MobileNav from "@/components/global/MobileNav";
-import Sidebar from "@/components/global/Sidebar";
 import clientRoutes from "@/data/clientRoutes";
-import { IsOpenContext } from "@/context/IsOpenContext";
 import { useRouter } from "next/router";
 import { debounce } from "lodash";
 
 const Layout = ({ children }) => {
-  const { isOpen } = useContext(IsOpenContext);
   const [prevRoute, setPrevRoute] = useState("");
   const [nextRoute, setNextRoute] = useState("");
   const router = useRouter();
@@ -69,35 +65,15 @@ const Layout = ({ children }) => {
   }, 300);
 
   return (
-    <div
-      className={`
-      flex
-      w-full
-      flex-col
-      overflow-scroll
-      overscroll-contain 
-      px-5
-      lg:mt-0
-      lg:flex-row
-      lg:overflow-hidden
-      lg:px-0
-      ${isOpen && "fixed"}
-      `}
+    <main
+      ref={ref}
+      onWheel={handleWheel}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      className="lg:custom_scroll mt-3 min-h-[84vh] w-full flex-1 overflow-y-auto overflow-x-hidden pb-top_margin scrollbar-hide lg:mt-0 lg:h-[90vh] lg:pl-[190px] lg:pr-[10vw] lg:scrollbar-default"
     >
-      <>
-        <Sidebar />
-        <MobileNav />
-        <main
-          ref={ref}
-          onWheel={handleWheel}
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
-          className="lg:custom_scroll mt-3 min-h-[84vh] w-full flex-1 overflow-auto pb-top_margin  scrollbar-hide lg:mt-0 lg:h-[90vh] lg:pl-[190px] lg:pr-[10vw] lg:scrollbar-default"
-        >
-          {children}
-        </main>
-      </>
-    </div>
+      {children}
+    </main>
   );
 };
 

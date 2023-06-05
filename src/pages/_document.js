@@ -24,6 +24,8 @@ export default function Document() {
         />
         <meta name="twitter:image" content="/images/home.webp" />
         <link rel="canonical" href="team.purplevery.co.kr" />
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="favicon.ico" sizes="180x180" />
         <meta
           property="description"
           content="사랑하는 사람들과 성공으로 가는 과정을 계획하는데 함께하겠습니다."

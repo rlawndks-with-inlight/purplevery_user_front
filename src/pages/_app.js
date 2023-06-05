@@ -4,6 +4,8 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { motion, AnimatePresence } from "framer-motion";
 
+import MobileNav from "@/components/global/MobileNav";
+import Sidebar from "@/components/global/Sidebar";
 import "@/styles/globals.css";
 import Navbar from "@/components/global/Navbar";
 import ScrollToTop from "@/components/global/ScrollToTop";
@@ -19,7 +21,7 @@ const nsKR = Noto_Sans_KR({
 const pageVariants = {
   initial: { opacity: 0 },
   visible: { opacity: 1 },
-  hidden: { opacity: 0, position: "absolute" },
+  hidden: { opacity: 0, position: "fixed" },
 };
 
 export default function App({ Component, pageProps }) {
@@ -36,27 +38,44 @@ export default function App({ Component, pageProps }) {
   }, [pathname]);
 
   return (
-    <AnimatePresence initial={false} mode="sync">
-      <motion.div
-        key={pathname}
-        variants={pageVariants}
-        initial="initial"
-        animate="visible"
-        exit="hidden"
-        transition={{ duration: 1 }}
-        className={`w-full ${bgImg} bg-cover`}
-      >
-        <IsOpenContext.Provider value={{ isOpen, setIsOpen }}>
-          <Head>
-            <title>PURPLEVERY</title>
-          </Head>
-          <ScrollToTop />
-          <Navbar />
-          <main className={`${nsKR.variable} font-noto`}>
-            <Component {...pageProps} />
-          </main>
-        </IsOpenContext.Provider>
-      </motion.div>
-    </AnimatePresence>
+    <div className={`w-full ${bgImg} bg-cover`}>
+      <IsOpenContext.Provider value={{ isOpen, setIsOpen }}>
+        <Head>
+          <title>PURPLEVERY</title>
+        </Head>
+        <ScrollToTop />
+        <Navbar />
+        <div
+          className={`
+      custom_scroll
+      flex
+      w-full
+      flex-col
+      overflow-scroll
+      overscroll-contain 
+      lg:mt-0
+      lg:flex-row
+      lg:overflow-hidden
+      ${isOpen && "fixed"}
+      `}
+        >
+          <Sidebar />
+          <MobileNav />
+          <AnimatePresence initial={false} mode="sync">
+            <motion.main
+              key={pathname}
+              variants={pageVariants}
+              initial="initial"
+              animate="visible"
+              exit="hidden"
+              transition={{ duration: 1 }}
+              className={`${nsKR.variable} top-[86px] w-full px-5 font-noto lg:left-sm_sidebar_w lg:px-0 2xl:left-sidebar_w`}
+            >
+              <Component {...pageProps} />
+            </motion.main>
+          </AnimatePresence>
+        </div>
+      </IsOpenContext.Provider>
+    </div>
   );
 }

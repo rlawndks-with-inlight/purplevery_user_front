@@ -32,7 +32,7 @@ const clientRoutes = [
     bgImg: "payvery",
   },
   {
-    link: "/qna",
+    link: "/404tok",
     title: "404tok",
     isSub: false,
     bgImg: "404",
