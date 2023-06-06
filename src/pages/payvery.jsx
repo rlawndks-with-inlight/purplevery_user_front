@@ -1,15 +1,22 @@
 import Paragraph from "@/components/global/Paragraph";
-import Layout from "@/components/layout";
+import Layout from "@/components/layout/clientLayout";
+import { fadeIn } from "@/libs/variants";
+import { motion } from "framer-motion";
 
 const Payvery = () => {
   return (
-    <Layout>
-      <div className="pt-0 lg:pt-[5.5rem]">
-        <div className="flex h-[3rem] items-center md:h-top_margin">
+    <>
+      <div className="pt-0 lg:pt-[104px]">
+        <motion.div
+          variants={fadeIn("up", 0.4)}
+          initial="hidden"
+          animate={"show"}
+          className="flex items-center"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 405.718 63.185"
-            className="w-[179px] md:w-[250px] 2xl:w-[405.718px]"
+            className="w-[179px] md:w-[250px] 2xl:w-[451px]"
           >
             <g
               id="그룹_123"
@@ -107,35 +114,37 @@ const Payvery = () => {
               </g>
             </g>
           </svg>
+        </motion.div>
+        <div className="mt-[15px] lg:mt-[45px]">
+          <Paragraph hasImg>
+            <strong className="font-bold">페</strong>
+            <strong className="font-bold">이</strong>
+            <strong className="font-bold">베</strong>
+            <strong className="font-bold">리</strong>
+            <span>{"는 "}</span>
+            <strong className="font-bold">다</strong>
+            <strong className="font-bold">양</strong>
+            <strong className="font-bold">{"한 "}</strong>
+            <strong className="font-bold">비</strong>
+            <strong className="font-bold">즈</strong>
+            <strong className="font-bold">니</strong>
+            <strong className="font-bold">스</strong>
+            <span>{"를 "}</span>
+            <span>위</span>
+            <span>{"한\n"}</span>
+            <strong className="font-bold">전</strong>
+            <strong className="font-bold">{"산 "}</strong>
+            <strong className="font-bold">서</strong>
+            <strong className="font-bold">비</strong>
+            <strong className="font-bold">스</strong>
+            <span>입</span>
+            <span>니</span>
+            <span>다</span>
+            <span>.</span>
+          </Paragraph>
         </div>
-        <Paragraph hasImg>
-          <strong className="font-bold">페</strong>
-          <strong className="font-bold">이</strong>
-          <strong className="font-bold">베</strong>
-          <strong className="font-bold">리</strong>
-          <span>{"는 "}</span>
-          <strong className="font-bold">다</strong>
-          <strong className="font-bold">양</strong>
-          <strong className="font-bold">{"한 "}</strong>
-          <strong className="font-bold">비</strong>
-          <strong className="font-bold">즈</strong>
-          <strong className="font-bold">니</strong>
-          <strong className="font-bold">스</strong>
-          <span>{"를 "}</span>
-          <span>위</span>
-          <span>{"한\n"}</span>
-          <strong className="font-bold">전</strong>
-          <strong className="font-bold">{"산 "}</strong>
-          <strong className="font-bold">서</strong>
-          <strong className="font-bold">비</strong>
-          <strong className="font-bold">스</strong>
-          <span>입</span>
-          <span>니</span>
-          <span>다</span>
-          <span>.</span>
-        </Paragraph>
       </div>
-    </Layout>
+    </>
   );
 };
 

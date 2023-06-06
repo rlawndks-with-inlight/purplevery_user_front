@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import { fadeIn } from "@/libs/variants";
 import Paragraph from "@/components/global/Paragraph";
-import Layout from "@/components/layout";
+import Layout from "@/components/layout/clientLayout";
 import Rocket from "@/components/404/Rocket";
 import Boom from "@/components/404/Boom";
 import Cloud from "@/components/404/Cloud";
@@ -24,73 +24,67 @@ const TOK = () => {
     });
   }, []);
 
-  const onDoubleClick = useCallback((event) => {
-    if (event.detail === 2) {
-      setIsDoubleClicked(true);
-      setTimeout(() => {
-        setIsDoubleClicked(false);
-      }, 2600);
-      setTimeout(() => {
-        setVeryDownStart(true);
-        setTimeout(() => setVeryDownStart(false), 4000);
-      }, 2500);
-    }
+  const onDoubleClick = useCallback(() => {
+    setIsDoubleClicked(true);
+    setTimeout(() => {
+      setIsDoubleClicked(false);
+    }, 2600);
+    setTimeout(() => {
+      setVeryDownStart(true);
+      setTimeout(() => setVeryDownStart(false), 4000);
+    }, 2500);
   }, []);
 
   return (
     <>
-      <Layout>
-        <>
-          <div
-            onClick={onDoubleClick}
-            className="w-fit cursor-pointer select-none font-bold"
-          >
-            <Paragraph>
-              <strong className="font-bold md:text-custom_md 2xl:text-custom_lg">
-                4
-              </strong>
-              <strong className="font-bold md:text-custom_md 2xl:text-custom_lg">
-                0
-              </strong>
-              <strong className="font-bold md:text-custom_md 2xl:text-custom_lg">
-                4
-              </strong>
-              <strong className="font-bold md:text-custom_md 2xl:text-custom_lg">
-                t
-              </strong>
-              <strong className="font-bold md:text-custom_md 2xl:text-custom_lg">
-                o
-              </strong>
-              <strong className="font-bold md:text-custom_md 2xl:text-custom_lg">
-                k
-              </strong>
-            </Paragraph>
-          </div>
+      <div
+        onDoubleClick={onDoubleClick}
+        className="w-fit cursor-pointer select-none font-bold"
+      >
+        <Paragraph>
+          <strong className="font-bold md:text-custom_md 2xl:text-custom_lg">
+            4
+          </strong>
+          <strong className="font-bold md:text-custom_md 2xl:text-custom_lg">
+            0
+          </strong>
+          <strong className="font-bold md:text-custom_md 2xl:text-custom_lg">
+            4
+          </strong>
+          <strong className="font-bold md:text-custom_md 2xl:text-custom_lg">
+            t
+          </strong>
+          <strong className="font-bold md:text-custom_md 2xl:text-custom_lg">
+            o
+          </strong>
+          <strong className="font-bold md:text-custom_md 2xl:text-custom_lg">
+            k
+          </strong>
+        </Paragraph>
+      </div>
 
-          {isClient && (
-            <motion.div
-              variants={fadeIn("up", 0.4)}
-              initial="hidden"
-              animate={"show"}
-              className="mt-[15px] whitespace-pre-wrap text-custom_sm leading-[55px] lg:mt-[45px]"
-            >
-              <TypeAnimation>
-                <span className="">서</span>
-                <span className="">비</span>
-                <span className="">스</span>
-                <span className="">{"를 "}</span>
-                <span className="">준</span>
-                <span className="">비</span>
-                <span className="">{" 중 "}</span>
-                <span className="">입</span>
-                <span className="">니</span>
-                <span className="">다</span>
-                <span className="">.</span>
-              </TypeAnimation>
-            </motion.div>
-          )}
-        </>
-      </Layout>
+      {isClient && (
+        <motion.div
+          variants={fadeIn("up", 0.4)}
+          initial="hidden"
+          animate={"show"}
+          className="mt-[15px] whitespace-pre-wrap text-custom_sm leading-[55px] lg:mt-[45px]"
+        >
+          <TypeAnimation>
+            <span className="">서</span>
+            <span className="">비</span>
+            <span className="">스</span>
+            <span className="">{"를 "}</span>
+            <span className="">준</span>
+            <span className="">비</span>
+            <span className="">{" 중 "}</span>
+            <span className="">입</span>
+            <span className="">니</span>
+            <span className="">다</span>
+            <span className="">.</span>
+          </TypeAnimation>
+        </motion.div>
+      )}
 
       <AnimatePresence mode="wait">
         {isDoubleClicked && (
