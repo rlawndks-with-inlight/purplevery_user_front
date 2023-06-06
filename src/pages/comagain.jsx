@@ -1,11 +1,18 @@
 import Paragraph from "@/components/global/Paragraph";
-import Layout from "@/components/layout";
+import Layout from "@/components/layout/clientLayout";
+import { fadeIn } from "@/libs/variants";
+import { motion } from "framer-motion";
 
 const Comagain = () => {
   return (
-    <Layout>
-      <div className="pt-0 lg:pt-[5.5rem]">
-        <div className="flex h-[3rem] items-center md:h-top_margin">
+    <>
+      <div className="pt-0 lg:pt-[104px]">
+        <motion.div
+          variants={fadeIn("up", 0.4)}
+          initial="hidden"
+          animate={"show"}
+          className="flex items-center"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 405.718 70.231"
@@ -89,75 +96,77 @@ const Comagain = () => {
               </g>
             </g>
           </svg>
+        </motion.div>
+        <div className="mt-[15px] lg:mt-[45px]">
+          <Paragraph hasImg>
+            <strong className="font-bold">컴</strong>
+            <strong className="font-bold">어</strong>
+            <strong className="font-bold">게</strong>
+            <strong className="font-bold">인</strong>
+            <span>{"은\n"}</span>
+            <strong className="font-bold">소</strong>
+            <strong className="font-bold">상</strong>
+            <strong className="font-bold">공</strong>
+            <strong className="font-bold">인</strong>
+            <strong className="font-bold">{", "}</strong>
+            <strong className="font-bold">프</strong>
+            <strong className="font-bold">렌</strong>
+            <strong className="font-bold">차</strong>
+            <strong className="font-bold">이</strong>
+            <strong className="font-bold">즈</strong>
+            <strong className="font-bold">{", "}</strong>
+            <strong className="font-bold">통</strong>
+            <strong className="font-bold">신</strong>
+            <strong className="font-bold">판</strong>
+            <strong className="font-bold">매</strong>
+            <strong className="font-bold">업</strong>
+            <strong className="font-bold">을</strong>
+            <span>{" 위"}</span>
+            <span>{"한\n"}</span>
+            <strong className="font-bold">C</strong>
+            <strong className="font-bold">R</strong>
+            <strong className="font-bold">M</strong>
+            <strong className="font-bold">솔</strong>
+            <strong className="font-bold">루</strong>
+            <strong className="font-bold">션</strong>
+            <span>{" 으"}</span>
+            <span>{"로"}</span>
+            <span>{"써\n"}</span>
+            <strong className="font-bold">고</strong>
+            <strong className="font-bold">객</strong>
+            <strong className="font-bold">관</strong>
+            <strong className="font-bold">리</strong>
+            <strong className="font-bold">{", "}</strong>
+            <strong className="font-bold">상</strong>
+            <strong className="font-bold">품</strong>
+            <strong className="font-bold">관</strong>
+            <strong className="font-bold">리</strong>
+            <strong className="font-bold">{", "}</strong>
+            <strong className="font-bold">온</strong>
+            <strong className="font-bold">라</strong>
+            <strong className="font-bold">인</strong>
+            <strong className="font-bold">결</strong>
+            <strong className="font-bold">{"제 "}</strong>
+            <strong className="font-bold">{"및 "}</strong>
+            <strong className="font-bold">리</strong>
+            <strong className="font-bold">워</strong>
+            <strong className="font-bold">드</strong>
+            <span>{"를\n"}</span>
+            <span>제</span>
+            <span>공</span>
+            <span>하</span>
+            <span>{"는 "}</span>
+            <span>플</span>
+            <span>랫</span>
+            <span>폼</span>
+            <span>입</span>
+            <span>니</span>
+            <span>다</span>
+            <span>.</span>
+          </Paragraph>
         </div>
-        <Paragraph hasImg>
-          <strong className="font-bold">컴</strong>
-          <strong className="font-bold">어</strong>
-          <strong className="font-bold">게</strong>
-          <strong className="font-bold">인</strong>
-          <span>{"은\n"}</span>
-          <strong className="font-bold">소</strong>
-          <strong className="font-bold">상</strong>
-          <strong className="font-bold">공</strong>
-          <strong className="font-bold">인</strong>
-          <strong className="font-bold">{", "}</strong>
-          <strong className="font-bold">프</strong>
-          <strong className="font-bold">렌</strong>
-          <strong className="font-bold">차</strong>
-          <strong className="font-bold">이</strong>
-          <strong className="font-bold">즈</strong>
-          <strong className="font-bold">{", "}</strong>
-          <strong className="font-bold">통</strong>
-          <strong className="font-bold">신</strong>
-          <strong className="font-bold">판</strong>
-          <strong className="font-bold">매</strong>
-          <strong className="font-bold">업</strong>
-          <strong className="font-bold">을</strong>
-          <span>{" 위"}</span>
-          <span>{"한\n"}</span>
-          <strong className="font-bold">C</strong>
-          <strong className="font-bold">R</strong>
-          <strong className="font-bold">M</strong>
-          <strong className="font-bold">솔</strong>
-          <strong className="font-bold">루</strong>
-          <strong className="font-bold">션</strong>
-          <span>{" 으"}</span>
-          <span>{"로"}</span>
-          <span>{"써\n"}</span>
-          <strong className="font-bold">고</strong>
-          <strong className="font-bold">객</strong>
-          <strong className="font-bold">관</strong>
-          <strong className="font-bold">리</strong>
-          <strong className="font-bold">{", "}</strong>
-          <strong className="font-bold">상</strong>
-          <strong className="font-bold">품</strong>
-          <strong className="font-bold">관</strong>
-          <strong className="font-bold">리</strong>
-          <strong className="font-bold">{", "}</strong>
-          <strong className="font-bold">온</strong>
-          <strong className="font-bold">라</strong>
-          <strong className="font-bold">인</strong>
-          <strong className="font-bold">결</strong>
-          <strong className="font-bold">{"제 "}</strong>
-          <strong className="font-bold">{"및 "}</strong>
-          <strong className="font-bold">리</strong>
-          <strong className="font-bold">워</strong>
-          <strong className="font-bold">드</strong>
-          <span>{"를\n"}</span>
-          <span>제</span>
-          <span>공</span>
-          <span>하</span>
-          <span>{"는 "}</span>
-          <span>플</span>
-          <span>랫</span>
-          <span>폼</span>
-          <span>입</span>
-          <span>니</span>
-          <span>다</span>
-          <span>.</span>
-        </Paragraph>
       </div>
-    </Layout>
+    </>
   );
 };
 

@@ -1,16 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Noto_Sans_KR } from "next/font/google";
 import Head from "next/head";
-import { useRouter } from "next/router";
-import { motion, AnimatePresence } from "framer-motion";
-
-import MobileNav from "@/components/global/MobileNav";
-import Sidebar from "@/components/global/Sidebar";
 import "@/styles/globals.css";
-import Navbar from "@/components/global/Navbar";
 import ScrollToTop from "@/components/global/ScrollToTop";
 import { IsOpenContext } from "@/context/IsOpenContext";
-import clientRoutes from "@/data/clientRoutes";
+import { motion, AnimatePresence } from "framer-motion";
+import { useRouter } from "next/router";
+import { pageVariants } from "@/libs/variants";
+import ClientLayout from "@/components/layout/clientLayout";
 
 const nsKR = Noto_Sans_KR({
   subsets: ["latin"],
@@ -18,64 +15,50 @@ const nsKR = Noto_Sans_KR({
   variable: "--font-nsKR",
 });
 
-const pageVariants = {
-  initial: { opacity: 0 },
-  visible: { opacity: 1 },
-  hidden: { opacity: 0, position: "fixed" },
-};
-
-export default function App({ Component, pageProps }) {
+function App({ Component, pageProps }) {
   const { pathname } = useRouter();
   const [isOpen, setIsOpen] = useState(false);
-  const [bgImg, setBgImg] = useState("");
-
-  useEffect(() => {
-    clientRoutes.forEach((route) => {
-      if (route.link === pathname) {
-        setBgImg(`bg-${route.bgImg}`);
-      }
-    });
-  }, [pathname]);
 
   return (
-    <div className={`w-full ${bgImg} bg-cover`}>
+    <>
       <IsOpenContext.Provider value={{ isOpen, setIsOpen }}>
         <Head>
           <title>PURPLEVERY</title>
         </Head>
         <ScrollToTop />
-        <Navbar />
-        <div
-          className={`
-      custom_scroll
-      flex
-      w-full
-      flex-col
-      overflow-scroll
-      overscroll-contain 
-      lg:mt-0
-      lg:flex-row
-      lg:overflow-hidden
-      ${isOpen && "fixed"}
-      `}
-        >
-          <Sidebar />
-          <MobileNav />
-          <AnimatePresence initial={false} mode="sync">
-            <motion.main
-              key={pathname}
-              variants={pageVariants}
-              initial="initial"
-              animate="visible"
-              exit="hidden"
-              transition={{ duration: 1 }}
-              className={`${nsKR.variable} top-[86px] w-full px-5 font-noto lg:left-sm_sidebar_w lg:px-0 2xl:left-sidebar_w`}
-            >
-              <Component {...pageProps} />
-            </motion.main>
-          </AnimatePresence>
-        </div>
+        {(pageProps && pageProps.pathname) === "/admin" ? (
+          <Component {...pageProps} />
+        ) : (
+          <ClientLayout>
+            <AnimatePresence mode="sync" initial={false}>
+              <motion.main
+                key={pathname}
+                variants={pageVariants}
+                initial="initial"
+                animate="visible"
+                exit="hidden"
+                transition={{ duration: 0.5 }}
+                className={`${nsKR.variable} font-noto `}
+              >
+                <Component {...pageProps} />
+              </motion.main>
+            </AnimatePresence>
+          </ClientLayout>
+        )}
       </IsOpenContext.Provider>
-    </div>
+    </>
   );
 }
+
+App.getInitialProps = async (context) => {
+  const { ctx, Component } = context;
+  let pageProps = {};
+
+  if (Component.getInitialProps) {
+    // Component (pages 폴더에 있는 컴포넌트)에 getInitialProps가 있다면
+    pageProps = (await Component.getInitialProps(ctx)) || {};
+  }
+  return { pageProps };
+};
+
+export default App;
