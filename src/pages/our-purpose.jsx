@@ -1,13 +1,13 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 import Paragraph from "@/components/global/Paragraph";
-import Layout from "@/components/layout";
+import Layout from "@/components/layout/clientLayout";
 import Graph from "@/components/our-purpose/graph";
-import { fadeIn } from "@/libs/variants";
+import { fadeIn, pageVariants } from "@/libs/variants";
 
 const OurPurpose = () => {
   return (
-    <Layout>
+    <>
       <Paragraph>
         <strong className="font-bold">사</strong>
         <strong className="font-bold">랑</strong>
@@ -33,11 +33,11 @@ const OurPurpose = () => {
         variants={fadeIn("up", 0.8)}
         initial="hidden"
         animate={"show"}
-        className="mt-10"
+        className="mt-[35px] lg:mt-[65px]"
       >
         <Graph />
       </motion.div>
-    </Layout>
+    </>
   );
 };
 

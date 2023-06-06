@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 
 import Paragraph from "@/components/global/Paragraph";
 import { fadeIn } from "@/libs/variants";
-import Layout from "@/components/layout";
+import Layout from "@/components/layout/clientLayout";
 
 const Contact = () => {
   return (
-    <Layout>
+    <>
       <Paragraph>
         <strong className="font-bold md:text-custom_md 2xl:text-custom_lg">
           C
@@ -115,7 +115,7 @@ const Contact = () => {
           </div>
         </div>
       </motion.div>
-    </Layout>
+    </>
   );
 };
 

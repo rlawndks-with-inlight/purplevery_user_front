@@ -1,10 +1,10 @@
 import React from "react";
 import Paragraph from "@/components/global/Paragraph";
-import Layout from "@/components/layout";
+import Layout from "@/components/layout/clientLayout";
 
 const WhatWeDo = () => {
   return (
-    <Layout>
+    <>
       <Paragraph>
         <span>퍼</span>
         <span>플</span>
@@ -85,7 +85,7 @@ const WhatWeDo = () => {
         <span>다</span>
         <span>.</span>
       </Paragraph>
-    </Layout>
+    </>
   );
 };
 

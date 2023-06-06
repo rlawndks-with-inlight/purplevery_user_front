@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <>
       <header
-        className={`z-30 flex h-header_h w-full items-center justify-between border-b border-b-prime_shadow px-5 lg:sticky lg:inset-0 lg:px-20 2xl:px-x_margin ${
+        className={`opacityOnly1 z-30 flex h-header_h w-full items-center justify-between border-b border-b-prime_shadow px-5 lg:sticky lg:inset-0 lg:px-20 2xl:px-x_margin ${
           isOpen && "fixed border-none bg-black"
         }`}
       >
