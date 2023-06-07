@@ -370,7 +370,7 @@ const Navbar = () => {
             </g>
           </g>
         </svg>
-        <div className="flex space-x-3">
+        {/* <div className="flex space-x-3">
           <div className="group flex cursor-pointer items-center gap-[4.5px] hover:text-primary">
             <span>LOGIN</span>
             <svg
@@ -402,7 +402,7 @@ const Navbar = () => {
               <FiMenu className="h-5 w-5 text-white" />
             )}
           </div>
-        </div>
+        </div> */}
       </header>
       {isOpen && (
         <ul className="fixed left-0 top-[80px] z-50 flex h-full w-screen flex-col divide-y-2 divide-prime_shadow overflow-hidden bg-black px-4">
