@@ -79,7 +79,7 @@ const Contact = () => {
                 fill="#fff"
               />
             </svg>
-            <p className="contact_info_text">070-8080-3499</p>
+            <p className="contact_info_text">070 8080 3499</p>
           </div>
           <div className="flex-col items-center space-y-[15px] sm:flex sm:h-[249px] sm:space-y-[26.8px] sm:pt-[63px]">
             <svg

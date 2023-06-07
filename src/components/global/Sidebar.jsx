@@ -16,7 +16,7 @@ const Sidebar = () => {
                 "mb-[20px] w-fit cursor-pointer",
                 route.isSub &&
                   cls(
-                    "text-sm font-medium text-[#b3b3b3]",
+                    "text-sm text-[#b3b3b3]",
                     route?.isLastSub ? "mb-[35px]" : "mb-[13px]"
                   ),
                 router.pathname === route.link
