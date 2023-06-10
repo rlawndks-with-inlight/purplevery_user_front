@@ -18,7 +18,7 @@ export const fadeIn = (direction, delay, opacity = 1) => ({
 });
 
 export const pageVariants = {
-  initial: { opacity: 0 },
-  visible: { opacity: 1 },
-  hidden: { opacity: 0 },
+  initial: { opacity: 0, position: "fixed" },
+  visible: { opacity: 1, position: "static" },
+  hidden: { opacity: 0, position: "fixed" },
 };
