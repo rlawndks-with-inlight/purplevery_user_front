@@ -53,7 +53,7 @@ function App({ Component, pageProps }) {
                   sizes="(max-width: 1920px) 100vw"
                   priority
                   className={`-z-[1] h-full w-screen object-cover object-center ${
-                    image.path.includes(pathname) ? "opacity-100" : "opacity-0"
+                    image.path === pathname ? "opacity-100" : "opacity-0"
                   } transition-opacity duration-[0.5s]`}
                 />
               ))}

@@ -1,19 +1,27 @@
 export const backgroundImages = [
   {
-    path: ["/", "/our-purpose", "/what-we-do"],
+    path: "/",
     src: "/images/home.webp",
   },
   {
-    path: ["/comagain"],
+    path: "/our-purpose",
+    src: "/images/home.webp",
+  },
+  {
+    path: "/what-we-do",
+    src: "/images/home.webp",
+  },
+  {
+    path: "/comagain",
     src: "/images/comagain.webp",
   },
   {
-    path: ["/payvery"],
+    path: "/payvery",
     src: "/images/payvery.webp",
   },
-  { path: ["/404tok"], src: "/images/404tok.webp" },
+  { path: "/404tok", src: "/images/404tok.webp" },
   {
-    path: ["/contact"],
+    path: "/contact",
     src: "/images/contact.webp",
   },
 ];
