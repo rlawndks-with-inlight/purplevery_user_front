@@ -8,11 +8,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
 import { pageVariants } from "@/libs/variants";
 import ClientLayout from "@/components/layout/clientLayout";
+import { backgroundImages } from "@/data/backgroundImages";
+import Image from "next/image";
 
 const nsKR = Noto_Sans_KR({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700", "900"],
-  variable: "--font-nsKR",
+  display: "swap",
 });
 
 function App({ Component, pageProps }) {
@@ -38,10 +40,23 @@ function App({ Component, pageProps }) {
                 animate="visible"
                 exit="hidden"
                 transition={{ duration: 0.5 }}
-                className={`${nsKR.variable} w-screen px-5 font-noto lg:w-full lg:px-0`}
+                className={`${nsKR.className} w-screen px-5 lg:w-full lg:px-0`}
               >
                 <Component {...pageProps} />
               </motion.main>
+              {backgroundImages.map((image, idx) => (
+                <Image
+                  key={idx}
+                  alt="백그라운드 이미지"
+                  src={image.src}
+                  fill
+                  sizes="(max-width: 1920px) 100vw"
+                  priority
+                  className={`-z-[1] h-full w-screen object-cover object-center ${
+                    image.path.includes(pathname) ? "opacity-100" : "opacity-0"
+                  } transition-opacity duration-[0.5s]`}
+                />
+              ))}
             </AnimatePresence>
           </ClientLayout>
         )}

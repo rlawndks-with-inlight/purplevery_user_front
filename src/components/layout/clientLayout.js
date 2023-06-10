@@ -5,10 +5,8 @@ import { debounce } from "lodash";
 import Navbar from "../global/Navbar";
 import MobileNav from "../global/MobileNav";
 import Sidebar from "../global/Sidebar";
-import { motion } from "framer-motion";
+
 import { IsOpenContext } from "@/context/IsOpenContext";
-import Image from "next/image";
-import { backgroundImages } from "@/data/backgroundImages";
 
 const ClientLayout = ({ children }) => {
   const { isOpen } = useContext(IsOpenContext);
@@ -115,23 +113,6 @@ const ClientLayout = ({ children }) => {
             {children}
           </div>
         </div>
-        {backgroundImages.map((image, idx) => (
-          <Image
-            key={idx}
-            alt="백그라운드 이미지"
-            src={image.src}
-            fill
-            sizes="(max-width: 1920px) 100vw"
-            priority
-            className={`
-                -z-[1]
-                h-full
-                w-screen
-                object-cover
-                object-center
-          ${image.path.includes(router.pathname) ? "visible" : "hidden"}`}
-          />
-        ))}
       </div>
     </>
   );
