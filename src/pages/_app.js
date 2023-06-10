@@ -30,7 +30,7 @@ function App({ Component, pageProps }) {
           <Component {...pageProps} />
         ) : (
           <ClientLayout>
-            <AnimatePresence mode="sync" initial={false}>
+            <AnimatePresence mode="sync" initial={true}>
               <motion.main
                 key={pathname}
                 variants={pageVariants}
@@ -38,7 +38,7 @@ function App({ Component, pageProps }) {
                 animate="visible"
                 exit="hidden"
                 transition={{ duration: 0.5 }}
-                className={`${nsKR.variable} font-noto `}
+                className={`${nsKR.variable} w-screen px-5 font-noto lg:w-full lg:px-0`}
               >
                 <Component {...pageProps} />
               </motion.main>

@@ -91,30 +91,29 @@ const ClientLayout = ({ children }) => {
         <Navbar />
         <div
           className={`
-      custom_scroll
-      flex
-      w-full
-      flex-col
-      overflow-scroll
-      overscroll-contain 
-      lg:mt-0
-      lg:flex-row
-      lg:overflow-hidden
-      ${isOpen && "fixed"}
+          custom_scroll
+          flex
+          w-full
+          flex-col  
+          overflow-scroll
+          overscroll-contain 
+          lg:mt-0
+          lg:flex-row
+          lg:overflow-hidden
+          ${isOpen ? "fixed" : "static"}
       `}
         >
           <Sidebar />
           <MobileNav />
-
-          <motion.div
+          <div
             ref={ref}
             onWheel={handleWheel}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
-            className="lg:custom_scroll top-[86px] mt-3 min-h-[84vh] w-full flex-1 overflow-y-auto overflow-x-hidden px-5 pb-top_margin scrollbar-hide lg:left-sm_sidebar_w lg:mt-0 lg:h-[90vh] lg:px-0 lg:pl-[190px] lg:pr-[10vw] lg:scrollbar-default 2xl:left-sidebar_w "
+            className="lg:custom_scroll top-[86px] mt-3 min-h-[84vh] w-full flex-1 overflow-y-auto overflow-x-hidden pb-top_margin scrollbar-hide lg:left-sm_sidebar_w lg:mt-0 lg:h-[90vh] lg:px-0 lg:pl-[190px] lg:pr-[10vw] lg:scrollbar-default 2xl:left-sidebar_w"
           >
             {children}
-          </motion.div>
+          </div>
         </div>
         {backgroundImages.map((image, idx) => (
           <Image
@@ -122,13 +121,14 @@ const ClientLayout = ({ children }) => {
             alt="백그라운드 이미지"
             src={image.src}
             fill
+            sizes="(max-width: 1920px) 100vw"
             priority
             className={`
-          -z-[1]
-          h-full
-          w-screen
-          object-cover
-          object-center
+                -z-[1]
+                h-full
+                w-screen
+                object-cover
+                object-center
           ${image.path.includes(router.pathname) ? "visible" : "hidden"}`}
           />
         ))}
