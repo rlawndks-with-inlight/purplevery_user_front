@@ -1,6 +1,5 @@
 import React from "react";
 import Paragraph from "@/components/global/Paragraph";
-import Layout from "@/components/layout/clientLayout";
 
 const WhatWeDo = () => {
   return (

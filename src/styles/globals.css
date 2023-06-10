@@ -75,7 +75,7 @@
   }
 
   .title {
-    @apply text-custom_sm font-light leading-[45px] tracking-[-0.04em] md:leading-[50px] 2xl:text-custom_md 2xl:leading-[65px];
+    @apply text-custom_sm font-light leading-[45px] tracking-[-0.05em] md:leading-[50px] 2xl:text-custom_md 2xl:leading-[65px];
   }
   .custom_scroll {
     @apply overflow-y-scroll scrollbar scrollbar-track-transparent scrollbar-thumb-prime_shadow/60 scrollbar-thumb-rounded-lg scrollbar-w-[6px];
