@@ -17,7 +17,7 @@ const nsKR = Noto_Sans_KR({
   display: "swap",
 });
 
-function App({ Component, pageProps }) {
+function App({ Component, pageProps, dns_data }) {
   const { pathname } = useRouter();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -72,8 +72,9 @@ App.getInitialProps = async ({ Component, ctx }) => {
       : {};
     if (ctx.req?.headers) {
       const host = ctx.req.headers.host.split(':')[0];
-      const res = await fetch(`https://backend.comagain.kr/api/v1/auth/domain?dns=${host}`);
+      const res = await fetch(`https://backend.comagain.kr/api/v1/auth/domain?dns=team.comagain.kr`);
       const json = (await res.json());
+      console.log(json)
       return {
         dns_data: json
       }
