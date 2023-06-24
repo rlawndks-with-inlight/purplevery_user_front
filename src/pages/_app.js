@@ -17,7 +17,7 @@ const nsKR = Noto_Sans_KR({
   display: "swap",
 });
 
-function App({ Component, pageProps, dns_data }) {
+function App({ Component, pageProps }) {
   const { pathname } = useRouter();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -65,28 +65,15 @@ function App({ Component, pageProps, dns_data }) {
   );
 }
 
-App.getInitialProps = async ({ Component, ctx }) => {
-  try {
-    const pageProps = Component.getInitialProps
-      ? await Component.getInitialProps(ctx)
-      : {};
-    if (ctx.req?.headers) {
-      const host = ctx.req.headers.host.split(':')[0];
-      const res = await fetch(`https://backend.comagain.kr/api/v1/auth/domain?dns=team.comagain.kr`);
-      const json = (await res.json());
-      console.log(json)
-      return {
-        dns_data: json
-      }
-    } else {
-      return {
-        dns_data: {}
-      }
-    }
-  } catch (err) {
-    return {
-      dns_data: {}
-    }
+App.getInitialProps = async (context) => {
+  const { ctx, Component } = context;
+  let pageProps = {};
+
+  if (Component.getInitialProps) {
+    // Component (pages 폴더에 있는 컴포넌트)에 getInitialProps가 있다면
+    pageProps = (await Component.getInitialProps(ctx)) || {};
   }
-}
+  return { pageProps };
+};
+
 export default App;
