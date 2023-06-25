@@ -40,21 +40,20 @@ function App({ Component, pageProps }) {
                 animate="visible"
                 exit="hidden"
                 transition={{ duration: 0.5 }}
-                className={`${nsKR.className} w-screen px-5 lg:w-full lg:px-0`}
+                className={`${nsKR.className} w-screen px-5 lg:px-0`}
               >
                 <Component {...pageProps} />
               </motion.main>
               {backgroundImages.map((image, idx) => (
-                <Image
+                <img
                   key={idx}
                   alt="백그라운드 이미지"
                   src={image.src}
-                  fill
-                  sizes="(max-width: 1920px) 100vw"
-                  priority
-                  className={`-z-[1] h-full w-screen object-cover object-center ${
-                    image.path === pathname ? "opacity-100" : "opacity-0"
-                  } transition-opacity duration-[0.5s]`}
+                  style={{
+                    left: '0',
+                  }}
+                  className={`-z-[1] w-screen object-cover object-center ${image.path === pathname ? "opacity-100" : "opacity-0"
+                    } transition-opacity duration-[0.5s] move-image`}
                 />
               ))}
             </AnimatePresence>

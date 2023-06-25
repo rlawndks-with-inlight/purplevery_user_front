@@ -40,7 +40,48 @@
   background-size: cover;
   background-position: center;
 }
+.move-image {
+  position: absolute;
+  animation: moveBackAndForth 30s ease-in-out infinite;
+  height: 120vh;
+  top:-10vh;
+}
 
+@keyframes moveBackAndForth {
+  0% {
+    top:-10vh;
+    height: 120vh;
+  }
+  50% {
+    top:-25vh;
+    height: 150vh;
+  }
+  100% {
+    top:-10vh;
+    height: 120vh;
+  }
+}
+@media (max-width: 1800px) {
+  .move-image {
+    animation: moveBackAndForth-2 30s ease-in-out infinite;
+    height: 100vh;
+    top:0vh;
+  }
+  @keyframes moveBackAndForth-2 {
+    0% {
+      top:0vh;
+      height: 100vh;
+    }
+    50% {
+      top:-25vh;
+      height: 150vh;
+    }
+    100% {
+      top:0vh;
+      height: 100vh;
+    }
+  }
+}
 @layer base {
   html,
   body {
@@ -88,3 +129,4 @@
     @apply whitespace-pre-wrap text-[3vw] sm:text-center sm:text-[15px] 2xl:text-[20px] 2xl:leading-[40px];
   }
 }
+
