@@ -1,6 +1,7 @@
 import React from "react";
 import Paragraph from "@/components/global/Paragraph";
-
+import { motion } from "framer-motion";
+import { fadeIn } from "@/libs/variants";
 const WhatWeDo = () => {
   return (
     <>

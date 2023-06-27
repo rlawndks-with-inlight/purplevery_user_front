@@ -43,24 +43,24 @@
 .move-image {
   position: absolute;
   animation: moveBackAndForth 30s ease-in-out infinite;
-  height: 120vh;
-  top:-10vh;
+  height: 140vh;
+  top:-20vh;
 }
 
 @keyframes moveBackAndForth {
   0% {
-    top:-10vh;
-    height: 120vh;
+    height: 140vh;
+  top:-20vh;
   }
   50% {
-    top:-25vh;
-    height: 150vh;
+    top:-30vh;
+    height: 160vh;
   }
   100% {
-    top:-10vh;
-    height: 120vh;
+    height: 140vh;
+  top:-20vh;
   }
-}
+} 
 @media (max-width: 1800px) {
   .move-image {
     animation: moveBackAndForth-2 30s ease-in-out infinite;
