@@ -40,7 +40,7 @@ function App({ Component, pageProps }) {
                 animate="visible"
                 exit="hidden"
                 transition={{ duration: 0.5 }}
-                className={`${nsKR.className} w-screen px-5 lg:px-0`}
+                className={`${nsKR.className} w-screen px-5 lg:px-0 scroll-height-content`}
               >
                 <Component {...pageProps} />
               </motion.main>

@@ -7,6 +7,7 @@ import MobileNav from "../global/MobileNav";
 import Sidebar from "../global/Sidebar";
 
 import { IsOpenContext } from "@/context/IsOpenContext";
+import $ from 'jquery';
 
 const ClientLayout = ({ children }) => {
   const { isOpen } = useContext(IsOpenContext);
@@ -36,24 +37,23 @@ const ClientLayout = ({ children }) => {
 
   const handleTouchEnd = (event) => {
     if (!ref.current) return;
-    const scrollThreshold = 150;
+
+    const contentHeight = $('.scroll-height-content').height() - window.innerHeight;
+    const scrollHeight = window.scrollY
     const touch = event.changedTouches[0];
     const delta = touch.clientY - startY;
-
     const scrollContainer = ref.current;
     const isTop = scrollContainer.scrollTop === 0;
     const isBottom =
       scrollContainer.scrollTop + scrollContainer.clientHeight + 10 >=
       scrollContainer.scrollHeight;
 
-    if (Math.abs(delta) > scrollThreshold) {
       scrollToTop(scrollContainer);
-      if (isTop && delta > 0) {
+      if (scrollHeight == 0) {
         router.push(prevRoute);
-      } else if (isBottom && delta < 0) {
+      } else if (contentHeight - scrollHeight <= 10 ) {
         router.push(nextRoute);
       }
-    }
   };
 
   const handleWheel = debounce((event) => {
@@ -85,7 +85,7 @@ const ClientLayout = ({ children }) => {
 
   return (
     <>
-      <div className="absolute z-[1] min-h-screen w-full bg-transparent">
+      <div className="absolute z-[1] min-h-screen w-full bg-transparent scroll-height-content">
         <Navbar />
         <div
           className={`

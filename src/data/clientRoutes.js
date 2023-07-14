@@ -16,6 +16,13 @@ const clientRoutes = [
     link: "/what-we-do",
     title: "What we do",
     isSub: "Who we are",
+    isLastSub: false,
+    bgImg: "/images/home.webp",
+  },
+  {
+    link: "/our-customer",
+    title: "Our customer",
+    isSub: "Who we are",
     isLastSub: true,
     bgImg: "/images/home.webp",
   },

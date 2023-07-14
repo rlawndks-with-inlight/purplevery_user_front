@@ -2,7 +2,6 @@ import Paragraph from "@/components/global/Paragraph";
 import Layout from "@/components/layout/clientLayout";
 import { fadeIn } from "@/libs/variants";
 import { motion } from "framer-motion";
-
 const Payvery = () => {
   return (
     <>
@@ -143,6 +142,17 @@ const Payvery = () => {
             <span>.</span>
           </Paragraph>
         </div>
+        <motion.div
+        variants={fadeIn("up", 1.5)}
+        initial="hidden"
+        animate={"show"}
+        className="mt-[35px] lg:mt-[65px]"
+      >
+        <img src={'/images/payvery_mock.png'} style={{
+          width:'90%',
+          maxWidth:'800px'
+        }}  />
+      </motion.div>
       </div>
     </>
   );

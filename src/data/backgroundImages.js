@@ -12,6 +12,10 @@ export const backgroundImages = [
     src: "/images/home.webp",
   },
   {
+    path: "/our-customer",
+    src: "/images/home.webp",
+  },
+  {
     path: "/comagain",
     src: "/images/comagain.webp",
   },
