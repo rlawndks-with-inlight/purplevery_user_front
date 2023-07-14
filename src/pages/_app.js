@@ -10,7 +10,8 @@ import { pageVariants } from "@/libs/variants";
 import ClientLayout from "@/components/layout/clientLayout";
 import { backgroundImages } from "@/data/backgroundImages";
 import Image from "next/image";
-
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 const nsKR = Noto_Sans_KR({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700", "900"],

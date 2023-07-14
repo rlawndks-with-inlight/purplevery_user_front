@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { createRef, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 import Paragraph from "@/components/global/Paragraph";
@@ -7,7 +7,12 @@ import Layout from "@/components/layout/clientLayout";
 import clientRoutes from "@/data/clientRoutes";
 import _ from 'lodash';
 import { styled } from "styled-components";
+import Slider from "react-slick";
+import $ from 'jquery';
 const logo_list = [
+  '/logos/헥토파이낸셜.png',
+  '/logos/에드원.png',
+  '/logos/60계치킨.png',
   '/logos/경기지방공사.png',
   '/logos/관세청.png',
   '/logos/교보생명.png',
@@ -105,8 +110,8 @@ const Card = (props) => {
   return (
     <>
       <CardWrappers>
-        <img src={item.logo_img} style={{ height: '48px', width: 'auto', maxWidth: '50%',margin:'0 auto 2rem 0' }} />
-        <div style={{color:'#ababab'}}>{item.comment}</div>
+        <img src={item.logo_img} style={{ height: '48px', width: 'auto', maxWidth: '50%', margin: '0 auto 2rem 0' }} />
+        <div style={{ color: '#ababab' }}>{item.comment}</div>
         <div>{item.title}</div>
       </CardWrappers>
     </>
@@ -115,10 +120,9 @@ const Card = (props) => {
 const ImgSlideContainer = styled.div`
 margin-top:2rem;
 overflow: hidden;
+background:#fff;
+padding:1rem 0;
 width: calc(100% - 600px);
-@media (max-width:2050px){
-  width: calc(100% - 600px);
-}
 @media (max-width:1535px){
   width: calc(100% - 400px);
 }
@@ -130,14 +134,11 @@ width: calc(100% - 600px);
 }
 `
 const ImgSlideContent = styled.div`
-width:100%;
 display:flex;
-column-gap:5rem;
-white-space: nowrap;
-animation: scrollText 10s infinite linear;
+animation: scrollText 50s infinite linear;
 @keyframes scrollText {
-  from   { transform: translateX(0%); }
-  to { transform: translateX(-50%); }
+  from   { transform: translateX(${props => props.scrollContainerWidth}); }
+  to { transform: translateX(-${props => props.scrollWidth});}
 }
 `
 const SlideImg = styled.img`
@@ -146,24 +147,50 @@ width:auto;
 `
 
 const Contact = () => {
+
+  const scrollContainerRef = useRef();
+  const scrollContentRef = useRef([]);
   const [loading, setLoading] = useState(true);
+  const [scrollWidth, setScrollWidth] = useState(undefined);
+  const [scrollContainerWidth, setScrollContainerWidth] = useState(undefined);
   const card_data = [
     {
-      logo_img: '/logos/경기지방공사.png',
-      title: '홍길동 전무',
-      comment: '정말 친절해요 !',
+      logo_img: '/logos/헥토파이낸셜.png',
+      title: '최재영 팀장',
+      comment: '"항상 최선을 다해 주셔서 너무 감사드립니다"',
     },
     {
-      logo_img: '/logos/관세청.png',
-      title: '김이박 실장',
-      comment: '정말 감사합니다 !',
+      logo_img: '/logos/에드원.png',
+      title: '송기진 본부장',
+      comment: '"업계 최고로 빠른 개발 속도, 대응 속도 항상 만족 스럽습니다"',
     },
     {
-      logo_img: '/logos/교보생명.png',
-      title: '박효신 과장',
-      comment: '도움이 많이 되었어요 !',
+      logo_img: '/logos/60계치킨.png',
+      title: '오준식 실장',
+      comment: '"항상 겸손한 모습으로 최선을 다해 주셔서 감사드립니다."',
     },
   ]
+  const item_list_setting = {
+    infinite: true,
+    speed: 10000,
+    autoplay: true,
+    autoplaySpeed: 2500,
+    slidesToShow: 5,
+    slidesToScroll: 0.01,
+    dots: false,
+  }
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 200)
+  }, [])
+  useEffect(() => {
+    let sum_result = _.sum(scrollContentRef.current.map(item => { return item?.offsetWidth }));
+    sum_result += (scrollContentRef.current.length - 1) * 64;
+    sum_result += scrollContainerRef.current?.offsetWidth*2;
+    setScrollContainerWidth(scrollContainerRef.current?.offsetWidth)
+    setScrollWidth(sum_result)
+  }, [scrollContentRef.current.map(item => { return item?.offsetWidth }), scrollContainerRef.current?.offsetWidth])
   return (
     <>
       <Paragraph>
@@ -175,31 +202,36 @@ const Contact = () => {
           </>
         ))}
       </Paragraph>
-      {/* pl-[8%] lg:px-[165px] */}
-      <motion.div
-        variants={fadeIn("up", 1)}
-        initial="hidden"
-        animate={"show"}
-        className="mt-10"
-        style={{ width: '100%',height:'auto' }}
-      >
-        <Row>
-          {card_data.map((item, idx) => (
-            <>
-              <Card item={item} />
-            </>
-          ))}
-        </Row>
-        <ImgSlideContainer>
-          <ImgSlideContent>
-            {logo_list.map((item, idx) => (
-              <>
-                <SlideImg src={item} />
-              </>
-            ))}
-          </ImgSlideContent>
-        </ImgSlideContainer>
-      </motion.div>
+      {!loading &&
+        <>
+
+          {/* pl-[8%] lg:px-[165px] */}
+          <motion.div
+            variants={fadeIn("up", 1)}
+            initial="hidden"
+            animate={"show"}
+            className="mt-10"
+            style={{ width: '100%', height: 'auto' }}
+          >
+            <Row>
+              {card_data.map((item, idx) => (
+                <>
+                  <Card item={item} />
+                </>
+              ))}
+            </Row>
+            <ImgSlideContainer>
+              <ImgSlideContent style={{ opacity: `${scrollWidth > 0 ? '1' : '0'}` }} scrollContainerWidth={`${scrollContainerWidth}px`} scrollWidth={`${scrollWidth}px`} ref={scrollContainerRef}>
+                {logo_list.map((item, idx) => (
+                  <>
+                    <SlideImg src={item} style={{ paddingRight: '4rem' }} ref={(el) => (scrollContentRef.current[idx] = el)} />
+                  </>
+                ))}
+              </ImgSlideContent>
+            </ImgSlideContainer>
+          </motion.div>
+        </>}
+
     </>
   );
 };
