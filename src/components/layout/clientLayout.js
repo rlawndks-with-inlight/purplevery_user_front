@@ -37,7 +37,6 @@ const ClientLayout = ({ children }) => {
 
   const handleTouchEnd = (event) => {
     if (!ref.current) return;
-
     const contentHeight = $('.scroll-height-content').height() - window.innerHeight;
     const scrollHeight = window.scrollY
     const touch = event.changedTouches[0];
@@ -48,12 +47,16 @@ const ClientLayout = ({ children }) => {
       scrollContainer.scrollTop + scrollContainer.clientHeight + 10 >=
       scrollContainer.scrollHeight;
 
-      scrollToTop(scrollContainer);
-      if (scrollHeight == 0) {
-        router.push(prevRoute);
-      } else if (contentHeight - scrollHeight <= 10 ) {
-        router.push(nextRoute);
-      }
+    scrollToTop(scrollContainer);
+    if (scrollHeight == 0) {
+      router.push(prevRoute);
+      window.scrollTo(0, 0);
+
+    } else if (contentHeight - scrollHeight <= 10) {
+      router.push(nextRoute);
+      window.scrollTo(0, 0);
+
+    }
   };
 
   const handleWheel = debounce((event) => {
@@ -67,9 +70,12 @@ const ClientLayout = ({ children }) => {
     if (isTop && event.deltaY < 0) {
       scrollToTop(scrollContainer);
       router.push(prevRoute);
+      window.scrollTo(0, 0);
+
     } else if (isBottom && event.deltaY > 0) {
       scrollToTop(scrollContainer);
       router.push(nextRoute);
+      window.scrollTo(0, 0);
     }
   }, 300);
 

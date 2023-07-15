@@ -95,7 +95,7 @@ padding:2rem;
 background:#fff;
 row-gap: 1rem;
 width:33%;
-border-radius:2rem;
+border-radius:1rem;
 box-shadow: 0 4px 4px #00000058;
 display:flex;
 flex-direction:column;
@@ -118,10 +118,12 @@ const Card = (props) => {
   )
 }
 const ImgSlideContainer = styled.div`
-margin-top:2rem;
+margin-top:5rem;
 overflow: hidden;
 background:#fff;
+border-radius:1rem;
 padding:1rem 0;
+max-width:1500px;
 width: calc(100% - 600px);
 @media (max-width:1535px){
   width: calc(100% - 400px);
@@ -135,9 +137,9 @@ width: calc(100% - 600px);
 `
 const ImgSlideContent = styled.div`
 display:flex;
-animation: scrollText 50s infinite linear;
+animation: scrollText 120s infinite linear;
 @keyframes scrollText {
-  from   { transform: translateX(${props => props.scrollContainerWidth}); }
+  from   { transform: translateX(0); }
   to { transform: translateX(-${props => props.scrollWidth});}
 }
 `
@@ -185,11 +187,13 @@ const Contact = () => {
     }, 200)
   }, [])
   useEffect(() => {
-    let sum_result = _.sum(scrollContentRef.current.map(item => { return item?.offsetWidth }));
-    sum_result += (scrollContentRef.current.length - 1) * 64;
-    sum_result += scrollContainerRef.current?.offsetWidth*2;
-    setScrollContainerWidth(scrollContainerRef.current?.offsetWidth)
-    setScrollWidth(sum_result)
+    if (scrollContentRef.current.length == logo_list.length) {
+      let sum_result = _.sum(scrollContentRef.current.map(item => { return item?.offsetWidth }));
+      sum_result += (scrollContentRef.current.length - 1) * 64;
+      sum_result += scrollContainerRef.current?.offsetWidth * 2;
+      setScrollContainerWidth(scrollContainerRef.current?.offsetWidth)
+      setScrollWidth(sum_result)
+    }
   }, [scrollContentRef.current.map(item => { return item?.offsetWidth }), scrollContainerRef.current?.offsetWidth])
   return (
     <>
@@ -202,6 +206,28 @@ const Contact = () => {
           </>
         ))}
       </Paragraph>
+      <div className="mt-[15px] lg:mt-[45px]">
+        <Paragraph hasImg>
+          <strong className="font-bold">퍼</strong>
+          <strong className="font-bold">플</strong>
+          <strong className="font-bold">베</strong>
+          <strong className="font-bold">리</strong>
+          <span>{"와 "}</span>
+          <strong className="font-bold">함</strong>
+          <strong className="font-bold">께</strong>
+          <strong className="font-bold">하</strong>
+          <strong className="font-bold">{"는\n"}</strong>
+          <strong className="font-bold">감</strong>
+          <strong className="font-bold">사</strong>
+          <strong className="font-bold">{"한 "}</strong>
+          <strong className="font-bold">분</strong>
+          <strong className="font-bold">들</strong>
+          <span>입</span>
+          <span>니</span>
+          <span>다</span>
+          <span>.</span>
+        </Paragraph>
+      </div>
       {!loading &&
         <>
 
