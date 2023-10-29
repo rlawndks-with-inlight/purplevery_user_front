@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-home: url("/images/home.webp");
+  --bg-comagain: url("/images/comagain.webp");
+  --bg-payvery: url("/images/payvery.webp");
+  --bg-404tok: url("/images/404tok.webp");
+  --bg-contact: url("/images/contact.webp");
+}
+
+.bg-home {
+  background-image: var(--bg-home);
+  background-size: cover;
+  background-position: center;
+}
+.bg-comagain {
+  background-image: var(--bg-comagain);
+  background-size: cover;
+  background-position: center;
+}
+.bg-payvery {
+  background-image: var(--bg-payvery);
+  background-size: cover;
+  background-position: center;
+}
+.bg-request {
+  background-image: var(--bg-request);
+  background-size: cover;
+  background-position: center;
+}
+.bg-404 {
+  background-image: var(--bg-404);
+  background-size: cover;
+  background-position: center;
+}
+.bg-contact {
+  background-image: var(--bg-contact);
+  background-size: cover;
+  background-position: center;
+}
+.move-image {
+  position: absolute;
+  animation: moveBackAndForth 30s ease-in-out infinite;
+  height: 140vh;
+  top:-20vh;
+}
+
+@keyframes moveBackAndForth {
+  0% {
+    height: 140vh;
+  top:-20vh;
+  }
+  50% {
+    top:-30vh;
+    height: 160vh;
+  }
+  100% {
+    height: 140vh;
+  top:-20vh;
+  }
+} 
+@media (max-width: 1800px) {
+  .move-image {
+    animation: moveBackAndForth-2 30s ease-in-out infinite;
+    height: 100vh;
+    top:0vh;
+  }
+  @keyframes moveBackAndForth-2 {
+    0% {
+      top:0vh;
+      height: 100vh;
+    }
+    50% {
+      top:-25vh;
+      height: 150vh;
+    }
+    100% {
+      top:0vh;
+      height: 100vh;
+    }
+  }
+}
+@layer base {
+  html,
+  body {
+    @apply w-full bg-black text-white lg:overflow-hidden;
+  }
+}
+
+@layer components {
+  .sidebar_before {
+    @apply before:black_gradient_top before:fixed before:top-header_h before:z-20 before:h-top_margin before:w-sm_sidebar_w before:2xl:w-sidebar_w;
+  }
+  .sidebar_after {
+    @apply before:black_gradient_bottom before:fixed before:top-header_h before:h-top_margin before:w-sm_sidebar_w before:2xl:w-sidebar_w;
+  }
+
+  .black_gradient_top {
+    background: rgb(12, 12, 12);
+    background: linear-gradient(
+      180deg,
+      rgba(12, 12, 12, 1) 10%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+
+  .black_gradient_bottom {
+    background: rgb(12, 12, 12);
+    background: linear-gradient(
+      360deg,
+      rgba(12, 12, 12, 1) 10%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+
+  .title {
+    @apply text-custom_sm font-light leading-[45px] tracking-[-0.05em] md:leading-[50px] 2xl:text-custom_md 2xl:leading-[65px];
+  }
+  .custom_scroll {
+    @apply overflow-y-scroll scrollbar scrollbar-track-transparent scrollbar-thumb-prime_shadow/60 scrollbar-thumb-rounded-lg scrollbar-w-[6px];
+  }
+  .strong {
+    @apply text-custom_sm font-bold text-primary md:text-custom_md 2xl:text-custom_lg 2xl:leading-[50px];
+  }
+
+  .contact_info_text {
+    @apply whitespace-pre-wrap text-[3vw] sm:text-center sm:text-[15px] 2xl:text-[20px] 2xl:leading-[40px];
+  }
+}
+
